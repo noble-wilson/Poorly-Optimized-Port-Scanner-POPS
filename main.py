@@ -3,7 +3,6 @@ import socket
 import validators
 import pyfiglet
 from datetime import datetime
-from time import sleep
 from pyfiglet import Figlet
 
 #To add a specific port, add it to light_list and select 1 for the intensity
@@ -14,6 +13,7 @@ custom_fig = Figlet(font='banner3')
 print(custom_fig.renderText('POPS'))
 print("-"*50)
 print("Welcome to Poorly Optimized Port Scanner!")
+print("REMEMBER THAT ACTIVE SCANNING SHOULD ONLY BE DONE WITH PERMISSION")
 print("Please identify your target.")
 
 target = input("I support IPv4 (8.8.8.8) and domain notation (google.com): ")
@@ -30,7 +30,7 @@ else:
 print("Please decide what level of scan intensity you want.")
 print("Level 1 is very light scan that can evade detection, while ")
 print("Level 3 is a strong scan that is very noticeable.")
-print("Level 2 is a middle ground, but is still quite noticeable.")
+print("Level 2 is a middle ground, but is still quite obvious.")
 
 intensity = int(input("1, 2, or 3: "))
 
@@ -47,6 +47,7 @@ if intensity == 1:
     result = s.connect_ex((target,port))
     if result == 0:
       print("Port {} is open".format(port))
+      print("Scan Complete and Connection Terminated")
       s.close()
 elif intensity == 2:
   print("-" * 50)
@@ -60,6 +61,7 @@ elif intensity == 2:
     result = s.connect_ex((target,port))
     if result == 0:
       print("Port {} is open".format(port))
+      print("Scan Complete and Connection Terminated")
       s.close()
 elif intensity == 3:
   print("-" * 50)
@@ -73,6 +75,7 @@ elif intensity == 3:
     result = s.connect_ex((target,port))
     if result == 0:
       print("Port {} is open".format(port))
+      print("Scan Complete and Connection Terminated")
       s.close()
 else:
   print("Program failed due to unrecognized intensity level.")
